@@ -12,6 +12,11 @@
     /* main paragraph */
     --white-60: rgba(255, 255, 255, 0.6);
     /* stat headings */
+    /* layout tokens */
+    --radius: .5rem;
+    --container-max-width: 69rem;
+    --card-height-desktop: 28rem;
+    --gap-lg: 3rem;
 
 }
 
@@ -19,6 +24,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
     font-family: "Lexend Deca", sans-serif;
 }
 
@@ -29,51 +37,50 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    max-width: 90rem;
 
 
 }
 
 .card {
-    width: 90%;
+    width: 100%;
     background-color: var(--blue-950);
     margin: 0 auto;
-    max-width: 69rem;
-    width: 90%;
-    height: 28rem;
+    max-width: var(--container-max-width);
+    height: var(--card-height-desktop);
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    border-radius: .5rem;
+    border-radius: var(--radius);
 }
 
 .card-content {
-    width: 100%;
+    flex: 1 1 50%;
+    min-width: 0; 
     padding: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     min-height: 100%;
 
-    h1 {
-        color: var(--white);
+}
 
-        .purple-color {
-            color: var(--purple-500);
-        }
-    }
 
-    p {
-        color: var(--white-60);
-        font-weight: 400;
+.card-content h1 {
+    color: var(--white);
+}
 
-    }
+.card-content h1 .purple-color {
+    color: var(--purple-500);
+}
+
+.card-content p {
+    color: var(--white-60);
+    font-weight: 400;
 }
 
 .state {
     display: flex;
-    gap: 3rem;
-
+    gap: var(--gap-lg);
     align-items: center;
 }
 
@@ -95,7 +102,8 @@ body {
     background-image: url(./images/image-header-desktop.jpg);
     background-size: cover;
     background-position: center;
-    width: 100%;
+    flex: 1 1 50%;
+    min-width: 0; 
     height: 100%;
 }
 
@@ -115,35 +123,35 @@ body {
 @media (max-width: 600px) {
     .card {
         width: 100%;
-        max-width: 340px; 
+        max-width: 340px;
         height: auto;
-        flex-direction: column-reverse; 
+        flex-direction: column-reverse;
         margin: 2rem auto;
-        text-align: center; 
+        text-align: center;
     }
 
     .card-content {
-        padding: 2rem 1.5rem; 
-        gap: 1.5rem; 
-        p{
-        font-size: 1rem;
-        }
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
     }
-    
+
+    .card-content p {
+        font-size: 1rem;
+    }
+
     .card-content h1 {
         font-size: 1.8rem;
     }
 
     .state {
-        flex-direction: column; 
-        gap: 1.5rem; 
-        margin-top: 1rem; 
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 1rem;
     }
-    
+
     .card-img {
-        
-    background-image: url(./images/image-header-mobile.jpg);
-        height: 200px; 
-        border-radius: .5rem .5rem 0 0; 
+        background-image: url(./images/image-header-mobile.jpg);
+        height: 200px;
+        border-radius: var(--radius) var(--radius) 0 0;
     }
 }
